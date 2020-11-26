@@ -28,7 +28,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install pytest
-        pip install -r --upgrade ./requirements/requirements.txt --quiet
+        pip install --upgrade --quiet -r ./requirements/requirements.txt
         python --version
         pip --version
         pip list
