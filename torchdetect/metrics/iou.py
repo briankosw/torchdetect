@@ -1,9 +1,9 @@
-__all__ = ["IoU", "GIoU"]
+__all__ = ["iou", "giou"]
 
 import torch
 
 
-def IoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+def iou(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     """
     Computes Intersection over Union.
 
@@ -12,7 +12,7 @@ def IoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
         target: an N x 4 tensor of target bounding boxes
 
     Returns:
-        a N tensor of IoU calculations
+        a N tensor of iou calculations
     """
     x_min = torch.max(pred[:, 0], target[:, 0])
     y_min = torch.max(pred[:, 1], target[:, 1])
@@ -26,7 +26,7 @@ def IoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     return intersection / union
 
 
-def GIoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+def giou(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     """
     Computes Generalized Intersection over Union.
 
@@ -35,7 +35,7 @@ def GIoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
         target: an N x 4 tensor of target bounding boxes
 
     Returns:
-        a N tensor of IoU calculations
+        a N tensor of iou calculations
     """
     x_min = torch.max(pred[:, 0], target[:, 0])
     y_min = torch.max(pred[:, 1], target[:, 1])

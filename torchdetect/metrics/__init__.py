@@ -1,3 +1,3 @@
-from .iou import GIoU, IoU
+from .iou import giou, iou
 
-__all__ = ["IoU", "GIoU"]
+__all__ = ["giou", "iou"]
