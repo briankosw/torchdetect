@@ -18,7 +18,8 @@ def IoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     y_min = torch.max(pred[:, 1], target[:, 1])
     x_max = torch.min(pred[:, 2], target[:, 2])
     y_max = torch.min(pred[:, 3], target[:, 3])
-    intersection = (x_max - x_min) * (y_max - y_min)
+    dx, dy = (x_max - x_min).clamp(min=0), (y_max - y_min).clamp(min=0)
+    intersection = dx * dy
     pred_area = (pred[:, 2] - pred[:, 0]) * (pred[:, 3] - pred[:, 1])
     target_area = (target[:, 2] - target[:, 0]) * (target[:, 3] - target[:, 1])
     union = pred_area + target_area - intersection
@@ -40,7 +41,8 @@ def GIoU(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     y_min = torch.max(pred[:, 1], target[:, 1])
     x_max = torch.min(pred[:, 2], target[:, 2])
     y_max = torch.min(pred[:, 3], target[:, 3])
-    intersection = (x_max - x_min) * (y_max - y_min)
+    dx, dy = (x_max - x_min).clamp(min=0), (y_max - y_min).clamp(min=0)
+    intersection = dx * dy
     pred_area = (pred[:, 2] - pred[:, 0]) * (pred[:, 3] - pred[:, 1])
     target_area = (target[:, 2] - target[:, 0]) * (target[:, 3] - target[:, 1])
     union = pred_area + target_area - intersection
