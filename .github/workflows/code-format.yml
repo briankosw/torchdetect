@@ -1,8 +1,6 @@
 name: Code Formating
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -20,7 +18,7 @@ jobs:
       - name: Install isort
         run: pip install isort
       - name: Run isort
-        run: isort torchdetect tests --check --diff
+        run: isort . --check --diff
   code-format-black:
     name: Check code formatting with Black
     runs-on: ubuntu-20.04
@@ -34,7 +32,7 @@ jobs:
       - name: Install Black
         run: pip install Black
       - name: Run Black
-        run: black --config pyproject.toml torchdetec tests --check
+        run: black --config --check pyproject.toml .
   type-checking-mypy:
     name: Type checking with mypy
     runs-on: ubuntu-20.04
@@ -48,7 +46,7 @@ jobs:
       - name: Install mypy
         run: pip install mypy
       - name: Run mypy
-        run: mypy --config-file .mypy.ini -p torchdetect
+        run: mypy --config-file .mypy.ini
   check-format-yamllint:
     name: Check YAML format with yamllint
     runs-on: ubuntu-20.04
@@ -62,4 +60,4 @@ jobs:
       - name: Install yamllint
         run: pip install yamllint
       - name: Run yamllint
-        run: yamllint -c .yamllint.yaml conf
+        run: yamllint -c .yamllint.yaml .
