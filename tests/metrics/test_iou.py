@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from torchdetect.metrics import GIoU, IoU
+from torchdetect.metrics import giou, iou
 
 
 @pytest.mark.parametrize(
@@ -27,7 +27,7 @@ from torchdetect.metrics import GIoU, IoU
 def test_iou(
     pred: torch.Tensor, target: torch.Tensor, expected_iou: torch.Tensor
 ) -> torch.Tensor:
-    assert torch.equal(IoU(pred, target), expected_iou)
+    assert torch.equal(iou(pred, target), expected_iou)
 
 
 @pytest.mark.parametrize(
@@ -53,4 +53,4 @@ def test_iou(
 def test_giou(
     pred: torch.Tensor, target: torch.Tensor, expected_giou: torch.Tensor
 ) -> torch.Tensor:
-    assert torch.equal(GIoU(pred, target), expected_giou)
+    assert torch.equal(giou(pred, target), expected_giou)
