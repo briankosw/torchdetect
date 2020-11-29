@@ -2,7 +2,7 @@ __all__ = ["iou_loss", "giou_loss"]
 
 import torch
 
-from ..metrics import GIoU, IoU
+from ..metrics import giou, iou
 
 
 def iou_loss(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
@@ -16,8 +16,8 @@ def iou_loss(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     Returns:
         a N tensor of IoU calculations
     """
-    iou = IoU(pred, target)
-    return 1 - iou
+    iou_ = iou(pred, target)
+    return 1 - iou_
 
 
 def giou_loss(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
@@ -31,5 +31,5 @@ def giou_loss(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     Returns:
         a N tensor of IoU calculations
     """
-    giou = GIoU(pred, target)
-    return 1 - giou
+    giou_ = giou(pred, target)
+    return 1 - giou_
