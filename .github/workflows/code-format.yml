@@ -32,7 +32,7 @@ jobs:
       - name: Install Black
         run: pip install Black
       - name: Run Black
-        run: black --config --check pyproject.toml .
+        run: black --check --config pyproject.toml .
   type-checking-mypy:
     name: Type checking with mypy
     runs-on: ubuntu-20.04
@@ -46,7 +46,7 @@ jobs:
       - name: Install mypy
         run: pip install mypy
       - name: Run mypy
-        run: mypy --config-file .mypy.ini
+        run: mypy --config-file .mypy.ini torchdetect
   check-format-yamllint:
     name: Check YAML format with yamllint
     runs-on: ubuntu-20.04
