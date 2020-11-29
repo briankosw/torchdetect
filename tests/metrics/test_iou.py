@@ -22,12 +22,17 @@ from torchdetect.metrics import giou, iou
             torch.Tensor([[100, 100, 200, 200]]),
             torch.Tensor([0.25]),
         ),
+        (
+            torch.Tensor([[100, 100, 150, 200]]),
+            torch.Tensor([[100, 100, 200, 200]]),
+            torch.Tensor([0.5]),
+        ),
     ],
 )
 def test_iou(
     pred: torch.Tensor, target: torch.Tensor, expected_iou: torch.Tensor
 ) -> torch.Tensor:
-    assert torch.equal(iou(pred, target), expected_iou)
+    assert torch.allclose(iou(pred, target), expected_iou)
 
 
 @pytest.mark.parametrize(
