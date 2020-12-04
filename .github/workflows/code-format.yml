@@ -18,7 +18,7 @@ jobs:
       - name: Install isort
         run: pip install isort
       - name: Run isort
-        run: isort . --check --diff
+        run: isort --check --diff --sp pyproject.toml .
   code-format-black:
     name: Check code formatting with Black
     runs-on: ubuntu-20.04
