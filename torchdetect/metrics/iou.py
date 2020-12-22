@@ -9,10 +9,11 @@ def iou(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
 
     Arguments:
         pred: an N x 4 tensor of prediction bounding boxes
-        target: an N x 4 tensor of target bounding boxes
+        target: an M x 4 tensor of target bounding boxes
 
     Returns:
-        a N tensor of iou calculations
+        a N x M tensor of iou values between every pair of prediction bounding box and
+        target bounding box
     """
     x_min = torch.max(pred[:, None, 0], target[:, 0])
     y_min = torch.max(pred[:, None, 1], target[:, 1])
@@ -32,10 +33,11 @@ def giou(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
 
     Arguments:
         pred: an N x 4 tensor of prediction bounding boxes
-        target: an N x 4 tensor of target bounding boxes
+        target: an M x 4 tensor of target bounding boxes
 
     Returns:
-        a N tensor of iou calculations
+        a N x M tensor of iou values between every pair of prediction bounding box and
+        target bounding box
     """
     x_min = torch.max(pred[:, None, 0], target[:, 0])
     y_min = torch.max(pred[:, None, 1], target[:, 1])
