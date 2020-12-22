@@ -10,22 +10,22 @@ from torchdetect.metrics import giou, iou
         (
             torch.Tensor([[0, 0, 100, 100]]),
             torch.Tensor([[200, 200, 300, 300]]),
-            torch.Tensor([0.0]),
+            torch.Tensor([[0.0]]),
         ),
         (
             torch.Tensor([[100, 100, 150, 150]]),
             torch.Tensor([[100, 100, 150, 150]]),
-            torch.Tensor([1.0]),
+            torch.Tensor([[1.0]]),
         ),
         (
             torch.Tensor([[100, 100, 150, 150]]),
             torch.Tensor([[100, 100, 200, 200]]),
-            torch.Tensor([0.25]),
+            torch.Tensor([[0.25]]),
         ),
         (
             torch.Tensor([[100, 100, 150, 200]]),
             torch.Tensor([[100, 100, 200, 200]]),
-            torch.Tensor([0.5]),
+            torch.Tensor([[0.5]]),
         ),
     ],
 )
@@ -41,17 +41,17 @@ def test_iou(
         (
             torch.Tensor([[100, 100, 200, 200]]),
             torch.Tensor([[100, 200, 200, 300]]),
-            torch.Tensor([0.0]),
+            torch.Tensor([[0.0]]),
         ),
         (
             torch.Tensor([[100, 100, 150, 150]]),
             torch.Tensor([[100, 100, 150, 150]]),
-            torch.Tensor([1.0]),
+            torch.Tensor([[1.0]]),
         ),
         (
             torch.Tensor([[100, 100, 150, 150]]),
             torch.Tensor([[100, 100, 200, 200]]),
-            torch.Tensor([0.25]),
+            torch.Tensor([[0.25]]),
         ),
     ],
 )
