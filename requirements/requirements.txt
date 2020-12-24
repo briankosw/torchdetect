@@ -1,3 +1,4 @@
 torch
 hydra-core
 pytorch-lightning
+pytorch-lightning-bolts
